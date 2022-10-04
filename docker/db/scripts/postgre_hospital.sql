@@ -1,1 +1,1 @@
-CREATE TABLE postgre_hospital
+CREATE SCHEMA IF NOT EXISTS hospital;
