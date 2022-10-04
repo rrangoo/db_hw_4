@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: "bazhov_205"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ./docker/db/scripts/postgres_library:/postgres_library/docker-entrypoint-initdb.d
+      - ./docker/db/scripts/postgres_library:/docker-entrypoint-initdb.d
       - ./docker/db/postgres_library:/var/lib/postgresql/data
     ports:
       - "5889:5432"
@@ -21,7 +21,7 @@ services:
       POSTGRES_PASSWORD: "bazhov_205"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ./docker/db/scripts/postgres_hospital:/postgres_hospital/docker-entrypoint-initdb.d
+      - ./docker/db/scripts/postgres_hospital:/docker-entrypoint-initdb.d
       - ./docker/db/postgres_hospital:/var/lib/postgresql/data
     ports:
       - "5888:5432"
@@ -34,7 +34,7 @@ services:
       POSTGRES_PASSWORD: "bazhov_205"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ./docker/db/scripts/postgres_station:/postgres_station/docker-entrypoint-initdb.d
+      - ./docker/db/scripts/postgres_station:/docker-entrypoint-initdb.d
       - ./docker/db/postgres_station:/var/lib/postgresql/data
     ports:
       - "5887:5432"
