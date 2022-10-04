@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  postgres_library:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "bazhov_205"
+      POSTGRES_USER: "bazhov_205"
+      POSTGRES_PASSWORD: "bazhov_205"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./docker/db/scripts/postgres_library:/postgres_library/docker-entrypoint-initdb.d
+      - ./postgres_library:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  postgres_hospital:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "bazhov_205"
+      POSTGRES_USER: "bazhov_205"
+      POSTGRES_PASSWORD: "bazhov_205"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./docker/db/scripts/postgres_hospital:/postgres_hospital/docker-entrypoint-initdb.d
+      - ./postgres_hospital:/var/lib/postgresql/data
+    ports:
+      - "5431:5432"
+
+  postgres_station:
+    image: postgres:14.5
+    environment:
+      POSTGRES_DB: "bazhov_205"
+      POSTGRES_USER: "bazhov_205"
+      POSTGRES_PASSWORD: "bazhov_205"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./docker/db/scripts/postgres_station:/postgres_station/docker-entrypoint-initdb.d
+      - ./postgres_station:/var/lib/postgresql/data
+    ports:
+      - "5430:5432"
