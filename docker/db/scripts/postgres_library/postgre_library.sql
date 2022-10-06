@@ -29,6 +29,7 @@ CREATE TABLE Library.book (
     name text,
     author text,
     number_of_pages int
+    
 );
 
 CREATE TABLE Library.instance (
