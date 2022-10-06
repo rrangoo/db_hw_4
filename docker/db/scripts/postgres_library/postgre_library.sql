@@ -22,8 +22,8 @@ CREATE TABLE Library.category (
 
 CREATE TABLE Library.book (
     id serial primary key,
-    Publisher_Name text references Library.publisher (Name),
-    Publisher_Address text references Library.publisher (Address),
+    Publisher_Name text references Library.Publisher (Name),
+    Publisher_Address text references Library.Publisher (Address),
     category_id int references Library.category (id),
     year date,
     name text,
