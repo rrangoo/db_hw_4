@@ -1,45 +1,46 @@
-CREATE SCHEMA library;
+CREATE SCHEMA Library;
 
-CREATE TABLE library.reader (
-    id serial primary key,
-    name text,
-    family text,
-    address text,
-    birth_year date
+CREATE TABLE Library.Reader (
+    Reader_number serial primary key,
+    Name text,
+    Sername text,
+    Address text,
+    Birth_year date
 );
 
-CREATE TABLE library.publisher (
-    id serial primary key,
-    name text,
-    address text
+CREATE TABLE Library.Publisher (
+    Name text,
+    Address text,
+    primary key(Name, Address)
 );
 
-CREATE TABLE library.category (
+CREATE TABLE Library.category (
     id serial primary key,
-    subcategory int references library.category (id),
+    subcategory int references Library.category (id),
     name text
 );
 
-CREATE TABLE library.book (
+CREATE TABLE Library.book (
     id serial primary key,
-    publisher_id int references library.publisher (id),
-    category_id int references library.category (id),
+    Publisher_Name text references Library.publisher (Name),
+    Publisher_Address text references Library.publisher (Address),
+    category_id int references Library.category (id),
     year date,
     name text,
     author text,
     number_of_pages int
 );
 
-CREATE TABLE library.instance (
+CREATE TABLE Library.instance (
     id serial primary key,
-    book_id int references library.book (id),
+    book_id int references Library.book (id),
     number_of_copy int,
     shelf_position int
 );
 
-CREATE TABLE library.rent (
+CREATE TABLE Library.rent (
     id serial primary key,
-    reader_id int references library.reader (id),
-    instance_id int references library.instance (id),
+    reader_id int references Library.reader (id),
+    instance_id int references Library.instance (id),
     date date
 );
